@@ -1,30 +1,18 @@
-#!/usr/bin/python
-
-
-# list of lists as a board
-# a single list of rows * cols elemenets
-# a pandas dataframe
-
-
 class GameOfLife():
 
-    def __init__(self): #, rows, cols):
-        self.resize(0, 0)
+    def __init__(self):
+        self.resize((0, 0))
 
-    def resize(self, rows, cols):
-        self._board = [([0] * cols)] * rows
+    def get_size(self):
+        h = len(self._board)
+        return h, 0 if h == 0 else len(self._board[0])
 
-    def get_rows(self):
-        return len(self._board)
+    def resize(self, size):
+        self._board = [[False] * size[1] for y in range(size[0])]
 
-    def get_cols(self):
-        return len(self.board[0])
+    def get_board(self):
+        return self._board
 
-
-
-"""
-print "this always happens"
-
-if __name__ == "__main__":
-    print "hello"
-"""
+    def set_is_alive(self, x, y, is_alive):
+        print self._board
+        self._board[x][y] = is_alive
