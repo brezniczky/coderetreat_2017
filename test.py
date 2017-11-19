@@ -33,11 +33,11 @@ class TestGameOfLife(unittest.TestCase):
         self._tested.set_is_alive(3, 2, True)
         self.assertTrue(
             self._tested.get_board() ==
-                [[False, False, False, False, False],
-                 [False, False, False, False, False],
-                 [False, False, False, True, False],
-                 [False, False, True, False, False],
-                 [False, False, False, False, False]]
+            [[False, False, False, False, False],
+             [False, False, False, False, False],
+             [False, False, False, True, False],
+             [False, False, True, False, False],
+             [False, False, False, False, False]]
         )
 
     def test_set_cell_sets_True(self):
@@ -48,7 +48,6 @@ class TestGameOfLife(unittest.TestCase):
                                          [False, True]]
         )
 
-
     def test_board_as_display_at(self):
         self._tested.resize((1, 1))
         self.assertEqual(
@@ -56,7 +55,7 @@ class TestGameOfLife(unittest.TestCase):
             " "
         )
 
-    def test_board_as_display_at(self):
+    def test_board_as_display_at_2(self):
         self._tested.resize([2, 2])
         self._tested.set_is_alive(1, 1, True)
         self.assertEqual(
@@ -64,7 +63,7 @@ class TestGameOfLife(unittest.TestCase):
             "*"
         )
 
-    def test_board_as_display_at(self):
+    def test_board_as_display_at_3(self):
         self._tested.resize([2, 2])
         self._tested.set_is_alive(0, 0, True)
         self.assertEqual(
@@ -94,7 +93,7 @@ class TestGameOfLife(unittest.TestCase):
             "  \n  \n"
         )
 
-    def test_print_board_twobytwo(self):
+    def test_print_board_twobytwo_2(self):
         self._tested.resize((3, 2))
         self._tested.set_is_alive(2, 1, True)
         self.assertEqual(
@@ -111,7 +110,6 @@ class TestGameOfLife(unittest.TestCase):
             False
         )
 
-
     def test_will_it_live_corner(self):
         self._tested.resize((3, 3))
         self._tested.set_is_alive(0, 0, True)
@@ -121,7 +119,6 @@ class TestGameOfLife(unittest.TestCase):
             self._tested.will_it_live(0, 0),
             False
         )
-
 
     def test_will_it_live_with_5_neighbors_live_cell(self):
         self._tested.resize((5, 5))
@@ -140,4 +137,3 @@ class TestGameOfLife(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
